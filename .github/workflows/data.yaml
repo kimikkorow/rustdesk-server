@@ -1,0 +1,33 @@
+name: rustdesk-data
+
+on:
+  schedule:
+    - cron:  '30 8 * * 6'
+
+  workflow_dispatch:
+
+  push:
+    branches:
+      - master 
+
+jobs:
+  redpill:
+    runs-on: ubuntu-latest
+    name: Checkout
+    steps:
+      - uses: actions/checkout@v2.1.0
+        name: checkout src
+        id: checkout
+        with:
+          submodules: 'true'
+
+      - name: run init.sh
+        id:  bash
+        run: |
+            bash docker/data/init.sh
+
+      - name: upload rustdesk-data.tar.gz
+        uses: actions/upload-artifact@v2
+        with:
+          name: rustdesk-data.tar.gz
+          path: rustdesk-server/rustdesk-data.tar.gz

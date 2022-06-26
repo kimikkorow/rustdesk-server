@@ -1,0 +1,17 @@
+version: '3.3'
+services:
+    hbbs:
+        container_name: hbbs
+        build: ./hbbs
+        restart: always
+        volumes:
+            - './hbbs:/app'
+        network_mode: host
+
+    hbbr:
+        container_name: hbbr
+        build: ./hbbr
+        restart: always
+        volumes:
+            - './hbbr:/app'
+        network_mode: host
