@@ -53,3 +53,9 @@ jobs:
       # 完成
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
+        
+      - name: 删除旧的工作流
+        uses: Mattraks/delete-workflow-runs@v2
+        with:
+          retain_days: 1
+          keep_minimum_runs: 3
