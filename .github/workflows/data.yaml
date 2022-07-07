@@ -31,3 +31,9 @@ jobs:
         with:
           name: rustdesk-data.tar.gz
           path: rustdesk-server/rustdesk-data.tar.gz
+          
+      - name: 删除旧的工作流
+        uses: Mattraks/delete-workflow-runs@v2
+        with:
+          retain_days: 1
+          keep_minimum_runs: 3
