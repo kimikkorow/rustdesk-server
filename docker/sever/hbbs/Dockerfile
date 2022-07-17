@@ -1,6 +1,6 @@
-# FROM ubuntu:20.04
+# FROM ubuntu:22.04
 # 国内用下面的
-FROM kimikkorow/ubuntu20.04
+FROM kimikkorow/ubuntu22.04
 
 ENV TZ=Asia/Shanghai
 
